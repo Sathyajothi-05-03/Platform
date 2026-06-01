@@ -1,0 +1,62 @@
+services:
+  gateway:
+    build: ./gateway
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+
+  auth:
+    build: ./services/auth
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3001:3000"
+
+  orders:
+    build: ./services/orders
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3002:3000"
+
+  riders:
+    build: ./services/riders
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3003:3000"
+
+  notifications:
+    build: ./services/notifications
+    env_file: .env
+    depends_on:
+      - db
+  analytics:
+    build: ./services/analytics
+    env_file: .env
+    depends_on:
+      - db
+  db:
+    image: mongo:6
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6379:6379"
