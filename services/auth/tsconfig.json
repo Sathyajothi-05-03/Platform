@@ -15,7 +15,7 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "rootDir": "../..",
-    "paths": { "@shared/*": ["./shared/*"], "@nestjs/*": ["node_modules/@nestjs/*"] },
+    "paths": { "@shared/*": ["../../shared/*"], "@nestjs/*": ["node_modules/@nestjs/*"] },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,

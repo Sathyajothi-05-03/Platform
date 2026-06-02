@@ -12,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2023",
     "sourceMap": true,
-    "outDir": "./dist",
+    "paths": { "@shared/*": ["../shared/*"], "@auth/*": ["../auth/src/*"], "@notifications/*": ["../notifications/src/*"], "@riders/*": ["../riders/src/*"] },
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,

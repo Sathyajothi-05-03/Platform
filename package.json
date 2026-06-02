@@ -1,0 +1,8 @@
+{
+  "name": "mini-logistics-platform",
+  "private": true,
+  "dependencies": {
+    "@nestjs/common": "^11.0.1",
+    "ioredis": "^5.4.0"
+  }
+}
